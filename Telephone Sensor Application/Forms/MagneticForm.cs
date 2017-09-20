@@ -7,12 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WeifenLuo.WinFormsUI.Docking;
 
-namespace Telephone_Sensor_Application
+namespace Telephone_Sensor_Application.Forms
 {
-    public partial class Form1 : Form
+    public partial class MagneticForm : DockContent
     {
-        public Form1()
+        public MagneticForm()
         {
             InitializeComponent();
         }
