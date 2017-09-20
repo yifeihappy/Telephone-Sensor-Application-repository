@@ -82,28 +82,28 @@
             // accelerateToolStripMenuItem
             // 
             this.accelerateToolStripMenuItem.Name = "accelerateToolStripMenuItem";
-            this.accelerateToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.accelerateToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.accelerateToolStripMenuItem.Text = "Accelerate";
             this.accelerateToolStripMenuItem.Click += new System.EventHandler(this.accelerateToolStripMenuItem_Click);
             // 
             // gravityToolStripMenuItem
             // 
             this.gravityToolStripMenuItem.Name = "gravityToolStripMenuItem";
-            this.gravityToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.gravityToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.gravityToolStripMenuItem.Text = "Gravity";
             this.gravityToolStripMenuItem.Click += new System.EventHandler(this.gravityToolStripMenuItem_Click);
             // 
             // gyroscopeToolStripMenuItem
             // 
             this.gyroscopeToolStripMenuItem.Name = "gyroscopeToolStripMenuItem";
-            this.gyroscopeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.gyroscopeToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.gyroscopeToolStripMenuItem.Text = "Gyroscope";
             this.gyroscopeToolStripMenuItem.Click += new System.EventHandler(this.gyroscopeToolStripMenuItem_Click);
             // 
             // magneticToolStripMenuItem
             // 
             this.magneticToolStripMenuItem.Name = "magneticToolStripMenuItem";
-            this.magneticToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.magneticToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.magneticToolStripMenuItem.Text = "Magnetic";
             this.magneticToolStripMenuItem.Click += new System.EventHandler(this.magneticToolStripMenuItem_Click);
             // 
@@ -128,14 +128,14 @@
             this.dockPanel1.Location = new System.Drawing.Point(0, 25);
             this.dockPanel1.Name = "dockPanel1";
             this.dockPanel1.RightToLeftLayout = true;
-            this.dockPanel1.Size = new System.Drawing.Size(1010, 740);
+            this.dockPanel1.Size = new System.Drawing.Size(1010, 725);
             this.dockPanel1.TabIndex = 3;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1010, 765);
+            this.ClientSize = new System.Drawing.Size(1010, 750);
             this.Controls.Add(this.dockPanel1);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;

@@ -51,7 +51,7 @@ namespace Telephone_Sensor_Application.Forms
 
         public void UpdateAccelerateGraph(SensorDataItem sensorData)
         {
-            if(first_b)
+            if(firstdata_b)
             {
                 Title titleAccelerate = new Title("Accelerate", Docking.Top);
                 titleAccelerate.Alignment = System.Drawing.ContentAlignment.MiddleCenter;
@@ -105,7 +105,7 @@ namespace Telephone_Sensor_Application.Forms
 
                     series.Points.AddXY(sensorData.Timestamp / 1000, data);
                 }
-                first_b = false;//init is finished.
+                firstdata_b = false;//init is finished.
             }
             else
             {

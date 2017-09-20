@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -32,7 +33,7 @@ namespace Telephone_Sensor_Application
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-
+            windowsToolStripMenuItem.Enabled = false;
         }
 
         private void accelerateToolStripMenuItem_Click(object sender, EventArgs e)
@@ -63,6 +64,9 @@ namespace Telephone_Sensor_Application
             sensorDataService1Client.Close();
 
             startInventoryThread = new Thread(startInventory);
+            startInventoryThread.IsBackground = true;
+            startInventoryThread.Start();
+            windowsToolStripMenuItem.Enabled = true;
         }
 
         public void startInventory()
@@ -74,6 +78,7 @@ namespace Telephone_Sensor_Application
                 SensorDataService1Client sensorDataService1Client = new SensorDataService1Client();
                 SensorDataItem[] sensorDataArr = sensorDataService1Client.TryDeque();
                 sensorDataService1Client.Close();
+                Debug.WriteLine("" + sensorDataArr.Length);
 
                 sensorDataList = new List<SensorDataItem>(sensorDataArr);
 
@@ -87,22 +92,27 @@ namespace Telephone_Sensor_Application
                             firstdataTime = sditem.Timestamp;
                         }
                         sditem.Timestamp -= firstdataTime;
-                        switch((SensorType)sditem.Type)
+                        this.BeginInvoke(method: new Action(() =>
                         {
-                            case SensorType.TYPE_ACCELEROMETER:
-                                if(accelerateForm.Visible)
-                                {
+                            switch ((SensorType)sditem.Type)
+                            {
+                                case SensorType.TYPE_ACCELEROMETER:
+                                    if (accelerateForm.Visible)
+                                    {
 
-                                    accelerateForm.UpdateAccelerateGraph(sditem);
-                                }
-                                break;
-                            case SensorType.TYPE_GRAVITY:
-                                if(gravityForm.Visible)
-                                {
-                                    
-                                }
-                                break;
+                                        accelerateForm.UpdateAccelerateGraph(sditem);
+                                    }
+                                    break;
+                                case SensorType.TYPE_GRAVITY:
+                                    if (gravityForm.Visible)
+                                    {
+
+                                    }
+                                    break;
+                            }
                         }
+                        ));
+
                     }
                 }
                 Thread.Sleep(10);
@@ -117,6 +127,7 @@ namespace Telephone_Sensor_Application
         {
             firstdata_b = true;
             AccelerateForm.firstdata_b = true;
+            windowsToolStripMenuItem.Enabled = false;
         }
     }
 }
