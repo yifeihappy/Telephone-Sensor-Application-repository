@@ -134,5 +134,13 @@ namespace Telephone_Sensor_Application.Forms
             }
         }
 
+        public void Clear()
+        {
+            charAccelerate.Titles.Clear();
+            charAccelerate.Series.Clear();
+            charAccelerate.Legends.Clear();
+            firstdata_b = true;
+        }
+
     }
 }

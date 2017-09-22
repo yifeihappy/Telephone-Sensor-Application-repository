@@ -29,13 +29,12 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsplLineType = new System.Windows.Forms.ToolStripLabel();
             this.LineTypeTSCB = new System.Windows.Forms.ToolStripComboBox();
-            this.charAccelerate = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.LineWidthtoolStripLabel = new System.Windows.Forms.ToolStripLabel();
             this.LineWidthTSCB = new System.Windows.Forms.ToolStripComboBox();
+            this.charAccelerate = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.charAccelerate)).BeginInit();
             this.SuspendLayout();
@@ -64,18 +63,6 @@
             this.LineTypeTSCB.Name = "LineTypeTSCB";
             this.LineTypeTSCB.Size = new System.Drawing.Size(121, 25);
             // 
-            // charAccelerate
-            // 
-            chartArea1.Name = "ChartAreaAccelerate";
-            this.charAccelerate.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.charAccelerate.Legends.Add(legend1);
-            this.charAccelerate.Location = new System.Drawing.Point(0, 28);
-            this.charAccelerate.Name = "charAccelerate";
-            this.charAccelerate.Size = new System.Drawing.Size(994, 677);
-            this.charAccelerate.TabIndex = 3;
-            this.charAccelerate.Text = "chart1";
-            // 
             // LineWidthtoolStripLabel
             // 
             this.LineWidthtoolStripLabel.Name = "LineWidthtoolStripLabel";
@@ -86,6 +73,16 @@
             // 
             this.LineWidthTSCB.Name = "LineWidthTSCB";
             this.LineWidthTSCB.Size = new System.Drawing.Size(121, 25);
+            // 
+            // charAccelerate
+            // 
+            chartArea1.Name = "ChartAreaAccelerate";
+            this.charAccelerate.ChartAreas.Add(chartArea1);
+            this.charAccelerate.Location = new System.Drawing.Point(0, 28);
+            this.charAccelerate.Name = "charAccelerate";
+            this.charAccelerate.Size = new System.Drawing.Size(994, 677);
+            this.charAccelerate.TabIndex = 3;
+            this.charAccelerate.Text = "chart1";
             // 
             // AccelerateForm
             // 
