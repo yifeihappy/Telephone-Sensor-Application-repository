@@ -26,6 +26,17 @@ namespace Telephone_Sensor_Application
          TYPE_LOW_LATENCY_OFFBODY_DETECT = 34,
          TYPE_MAGNETIC_FIELD = 2,
          TYPE_MAGNETIC_FIELD_UNCALIBRATED = 14,
-         TYPE_MOTION_DETECT = 30
-    }
+         TYPE_MOTION_DETECT = 30,
+         TYPE_ORIENTATION = 3,
+         TYPE_POSE_6DOF = 28,
+         TYPE_PRESSURE = 6,
+         TYPE_PROXIMITY = 8,
+         TYPE_RELATIVE_HUMIDITY = 12,
+         TYPE_ROTATION_VECTOR = 11,
+         TYPE_SIGNIFICANT_MOTION = 17,
+         TYPE_STATIONARY_DETECT = 29,
+         TYPE_STEP_COUNTER = 19,
+         TYPE_STEP_DETECTOR = 18,
+         TYPE_TEMPERATURE = 7
+}
 }

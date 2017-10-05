@@ -25,6 +25,12 @@
   <wsdl:message name="ISensorDataService1_ClearSensorDataQueue_OutputMessage">
     <wsdl:part name="parameters" element="tns:ClearSensorDataQueueResponse" />
   </wsdl:message>
+  <wsdl:message name="ISensorDataService1_getSensorsType_InputMessage">
+    <wsdl:part name="parameters" element="tns:getSensorsType" />
+  </wsdl:message>
+  <wsdl:message name="ISensorDataService1_getSensorsType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getSensorsTypeResponse" />
+  </wsdl:message>
   <wsdl:portType name="ISensorDataService1">
     <wsdl:operation name="DoWork">
       <wsdl:input wsaw:Action="http://tempuri.org/ISensorDataService1/DoWork" message="tns:ISensorDataService1_DoWork_InputMessage" />
@@ -37,6 +43,10 @@
     <wsdl:operation name="ClearSensorDataQueue">
       <wsdl:input wsaw:Action="http://tempuri.org/ISensorDataService1/ClearSensorDataQueue" message="tns:ISensorDataService1_ClearSensorDataQueue_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISensorDataService1/ClearSensorDataQueueResponse" message="tns:ISensorDataService1_ClearSensorDataQueue_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getSensorsType">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISensorDataService1/getSensorsType" message="tns:ISensorDataService1_getSensorsType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISensorDataService1/getSensorsTypeResponse" message="tns:ISensorDataService1_getSensorsType_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_ISensorDataService1" type="tns:ISensorDataService1">
@@ -61,6 +71,15 @@
     </wsdl:operation>
     <wsdl:operation name="ClearSensorDataQueue">
       <soap:operation soapAction="http://tempuri.org/ISensorDataService1/ClearSensorDataQueue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSensorsType">
+      <soap:operation soapAction="http://tempuri.org/ISensorDataService1/getSensorsType" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

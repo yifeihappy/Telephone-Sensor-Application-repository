@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripComboBoxLineType = new System.Windows.Forms.ToolStripComboBox();
@@ -48,7 +48,7 @@
             this.toolStripComboBoxLineWidth});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(747, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(994, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -76,12 +76,11 @@
             // 
             // chartGravity
             // 
-            chartArea2.Name = "ChartAreaGravity";
-            this.chartGravity.ChartAreas.Add(chartArea2);
-            this.chartGravity.Dock = System.Windows.Forms.DockStyle.Fill;
+            chartArea1.Name = "ChartAreaGravity";
+            this.chartGravity.ChartAreas.Add(chartArea1);
             this.chartGravity.Location = new System.Drawing.Point(0, 25);
             this.chartGravity.Name = "chartGravity";
-            this.chartGravity.Size = new System.Drawing.Size(747, 448);
+            this.chartGravity.Size = new System.Drawing.Size(994, 677);
             this.chartGravity.TabIndex = 1;
             this.chartGravity.Text = "chart1";
             // 
@@ -89,7 +88,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(747, 473);
+            this.ClientSize = new System.Drawing.Size(994, 702);
             this.Controls.Add(this.chartGravity);
             this.Controls.Add(this.toolStrip1);
             this.HideOnClose = true;

@@ -37,16 +37,6 @@ namespace Telephone_Sensor_Application.Forms
             }
             LineWidthTSCB.Text = Convert.ToString(3);
 
-            //SensorDataItem sd = new SensorDataItem();
-            //for (int i = 0; i < 40; i++)
-            //{
-            //    sd.X = 10+i;
-            //    sd.Y = 20 + i;
-            //    sd.Z = 20 - i;
-            //    sd.Timestamp = (ulong)(1000 * i);
-            //    this.UpdateAccelerateGraph(sd);
-            //}
-
         }
 
         public void UpdateAccelerateGraph(SensorDataItem sensorData)
@@ -103,7 +93,7 @@ namespace Telephone_Sensor_Application.Forms
                     //Set Docking of the legend chart to the Default Chart Area
                     charAccelerate.Legends[axis].DockedToChartArea = "ChartAreaAccelerate";
 
-                    series.Points.AddXY(sensorData.Timestamp / 1000, data);
+                    series.Points.AddXY(sensorData.Timestamp , data);
                 }
                 firstdata_b = false;//init is finished.
             }
@@ -129,7 +119,7 @@ namespace Telephone_Sensor_Application.Forms
                             break;
 
                     }
-                    charAccelerate.Series[axis].Points.AddXY(sensorData.Timestamp / 1000, data);
+                    charAccelerate.Series[axis].Points.AddXY(sensorData.Timestamp, data);
                 }
             }
         }

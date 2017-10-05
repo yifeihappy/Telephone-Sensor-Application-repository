@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -54,6 +55,36 @@ namespace Telephone_Sensor_Application.Utility
                     sw.Flush();
                 }
             }
+        }
+
+        //sava sensors type of the device support
+        public static void SaveFile(String msg, String filepath)
+        {
+            FileMode mode;
+            if (File.Exists(filepath))
+            {
+                mode = FileMode.Truncate;
+            }
+            else
+            {
+                mode = FileMode.OpenOrCreate;
+            }
+
+            using (FileStream fs = new FileStream(filepath, mode, FileAccess.Write))
+            {
+                using (StreamWriter sw = new StreamWriter(fs, System.Text.Encoding.UTF8))
+                {
+                    string data = "";
+                    String[] sensorStrArr = msg.Split(',');
+                    for(int i=1;i<sensorStrArr.Length;i++)
+                    {
+                        data += sensorStrArr[i] + "\r\n";
+                    }
+                    sw.Write(data);
+                    sw.Flush();
+                }
+            }
+
         }
     }
 }

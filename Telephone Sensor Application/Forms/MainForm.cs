@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System; 
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -13,25 +14,37 @@ using System.Windows.Forms;
 using Telephone_Sensor_Application.Forms;
 using Telephone_Sensor_Application.SensorDataService;
 using Telephone_Sensor_Application.Utility;
+using WeifenLuo.WinFormsUI.Docking;
 
 namespace Telephone_Sensor_Application
 {
     public partial class MainForm : Form
     {
-        private AccelerateForm accelerateForm = new AccelerateForm();
-        private MagneticForm magneticForm = new MagneticForm();
-        private GyroscopeForm gyroscopeForm = new GyroscopeForm();
-        private GravityForm gravityForm = new GravityForm();
+
+        //目前支持的传感器类型，增加的话需要在这里更改
+        public AccelerateForm accelerateForm = null;
+        public MagneticForm magneticForm = null;
+        public GyroscopeForm gyroscopeForm = null;
+        public GravityForm gravityForm = null;
+        public SettingForm settingForm = null;
+
         private bool firstdata_b = true;
         private ulong firstdataTime;
         private SensorDataTable sensorDataTable;
-        private string baseFilePath;
+        public static string baseFilePath;
         private string filename;
 
         Thread startInventoryThread;
 
         public MainForm()
         {
+            //目前支持的传感器类型，增加的话需要在这里更改
+            accelerateForm = new AccelerateForm();
+            magneticForm = new MagneticForm();
+            gyroscopeForm = new GyroscopeForm();
+            gravityForm = new GravityForm();
+            settingForm = new SettingForm(this);
+
             InitializeComponent();
             sensorDataTable = new SensorDataTable();
             filename = "\\SensorData.txt";
@@ -47,28 +60,10 @@ namespace Telephone_Sensor_Application
 
             DirectoryInfo dir = new DirectoryInfo(Application.StartupPath);
             baseFilePath = Path.Combine(dir.Parent.Parent.FullName, "sensor data files");
-            Debug.WriteLine(baseFilePath);
+            //Debug.WriteLine(baseFilePath);
 
-        }
+            settingForm.Show(this.dockPanel1);
 
-        private void accelerateToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            accelerateForm.Show(this.dockPanel1);
-        }
-
-        private void gravityToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            gravityForm.Show(this.dockPanel1);
-        }
-
-        private void gyroscopeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            gyroscopeForm.Show(this.dockPanel1);
-        }
-
-        private void magneticToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            magneticForm.Show(this.dockPanel1);
         }
 
         private void startToolStripMenuItem_Click(object sender, EventArgs e)
@@ -96,12 +91,20 @@ namespace Telephone_Sensor_Application
             while(true)
             {
                 List<SensorDataItem> sensorDataList = null;
-                SensorDataService1Client sensorDataService1Client = new SensorDataService1Client();
-                SensorDataItem[] sensorDataArr = sensorDataService1Client.TryDeque();
-                sensorDataService1Client.Close();
-                //Debug.WriteLine("" + sensorDataArr.Length);
+                try
+                {
+                    SensorDataService1Client sensorDataService1Client = new SensorDataService1Client();
+                    SensorDataItem[] sensorDataArr = sensorDataService1Client.TryDeque();
+                    sensorDataService1Client.Close();
+                    sensorDataList = new List<SensorDataItem>(sensorDataArr);
+                }
+                catch(EndpointNotFoundException e1)
+                {
+                    MessageBox.Show("Service is not running!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Debug.WriteLine(e1.ToString());
+                }
 
-                sensorDataList = new List<SensorDataItem>(sensorDataArr);
+                //Debug.WriteLine("" + sensorDataArr.Length);
 
                 if(sensorDataList != null && sensorDataList.Count>0)
                 {
@@ -116,6 +119,7 @@ namespace Telephone_Sensor_Application
                         sditem.Timestamp -= firstdataTime;
                         this.BeginInvoke(method: new Action(() =>
                         {
+                            //目前支持的传感器类型，增加的话需要在这里更改
                             switch ((SensorType)sditem.Type)
                             {
                                 case SensorType.TYPE_ACCELEROMETER:
@@ -131,6 +135,18 @@ namespace Telephone_Sensor_Application
                                         gravityForm.UpdateGravityGraph(sditem);
                                     }
                                     break;
+                                case SensorType.TYPE_MAGNETIC_FIELD:
+                                    if(magneticForm.Visible)
+                                    {
+                                        magneticForm.UpdateGraph(sditem);
+                                    }
+                                    break;
+                                case SensorType.TYPE_GYROSCOPE:
+                                    if(gyroscopeForm.Visible)
+                                    {
+                                        gyroscopeForm.UpdateGraph(sditem);
+                                    }
+                                    break;
                             }
                         }
                         ));
@@ -138,11 +154,7 @@ namespace Telephone_Sensor_Application
                     }
                 }
                 Thread.Sleep(10);
-
             }
-
-
-
         }
 
         private void stopToolStripMenuItem_Click(object sender, EventArgs e)
@@ -150,7 +162,6 @@ namespace Telephone_Sensor_Application
             try
             {
                 startInventoryThread.Abort();
-
                 //firstdata_b = true;
                 AccelerateForm.firstdata_b = true;
                 this.firstdata_b = true;
@@ -159,12 +170,12 @@ namespace Telephone_Sensor_Application
                 saveToolStripMenuItem.Enabled = true;
                 stopToolStripMenuItem.Enabled = false;
                 startToolStripMenuItem.Enabled = true;
+                settingForm.btnSensorsType.Enabled = true;
             }
             catch(Exception erro)
             {
                 Debug.WriteLine(erro.ToString());
             }
-           
         }
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
@@ -185,7 +196,6 @@ namespace Telephone_Sensor_Application
             {
                 SaveFileHelper.SaveFile(sensorDataTable.SensorsTable, fileDialog.FileName);
             }
-
         }
 
         public void Clear()
@@ -200,6 +210,11 @@ namespace Telephone_Sensor_Application
             {
                 gravityForm.Clear();
             }
+        }
+
+        private void dockPanel1_ActiveContentChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

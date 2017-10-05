@@ -143,6 +143,12 @@ namespace Telephone_Sensor_Application.SensorDataService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISensorDataService1/ClearSensorDataQueue", ReplyAction="http://tempuri.org/ISensorDataService1/ClearSensorDataQueueResponse")]
         System.Threading.Tasks.Task ClearSensorDataQueueAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISensorDataService1/getSensorsType", ReplyAction="http://tempuri.org/ISensorDataService1/getSensorsTypeResponse")]
+        string getSensorsType();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISensorDataService1/getSensorsType", ReplyAction="http://tempuri.org/ISensorDataService1/getSensorsTypeResponse")]
+        System.Threading.Tasks.Task<string> getSensorsTypeAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -194,6 +200,14 @@ namespace Telephone_Sensor_Application.SensorDataService {
         
         public System.Threading.Tasks.Task ClearSensorDataQueueAsync() {
             return base.Channel.ClearSensorDataQueueAsync();
+        }
+        
+        public string getSensorsType() {
+            return base.Channel.getSensorsType();
+        }
+        
+        public System.Threading.Tasks.Task<string> getSensorsTypeAsync() {
+            return base.Channel.getSensorsTypeAsync();
         }
     }
 }

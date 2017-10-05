@@ -32,10 +32,6 @@
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.windowsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.accelerateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.gravityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.gyroscopeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.magneticToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.startToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dockPanel1 = new WeifenLuo.WinFormsUI.Docking.DockPanel();
@@ -72,42 +68,9 @@
             // 
             // windowsToolStripMenuItem
             // 
-            this.windowsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.accelerateToolStripMenuItem,
-            this.gravityToolStripMenuItem,
-            this.gyroscopeToolStripMenuItem,
-            this.magneticToolStripMenuItem});
             this.windowsToolStripMenuItem.Name = "windowsToolStripMenuItem";
             this.windowsToolStripMenuItem.Size = new System.Drawing.Size(73, 21);
             this.windowsToolStripMenuItem.Text = "&Windows";
-            // 
-            // accelerateToolStripMenuItem
-            // 
-            this.accelerateToolStripMenuItem.Name = "accelerateToolStripMenuItem";
-            this.accelerateToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
-            this.accelerateToolStripMenuItem.Text = "Accelerate";
-            this.accelerateToolStripMenuItem.Click += new System.EventHandler(this.accelerateToolStripMenuItem_Click);
-            // 
-            // gravityToolStripMenuItem
-            // 
-            this.gravityToolStripMenuItem.Name = "gravityToolStripMenuItem";
-            this.gravityToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
-            this.gravityToolStripMenuItem.Text = "Gravity";
-            this.gravityToolStripMenuItem.Click += new System.EventHandler(this.gravityToolStripMenuItem_Click);
-            // 
-            // gyroscopeToolStripMenuItem
-            // 
-            this.gyroscopeToolStripMenuItem.Name = "gyroscopeToolStripMenuItem";
-            this.gyroscopeToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
-            this.gyroscopeToolStripMenuItem.Text = "Gyroscope";
-            this.gyroscopeToolStripMenuItem.Click += new System.EventHandler(this.gyroscopeToolStripMenuItem_Click);
-            // 
-            // magneticToolStripMenuItem
-            // 
-            this.magneticToolStripMenuItem.Name = "magneticToolStripMenuItem";
-            this.magneticToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
-            this.magneticToolStripMenuItem.Text = "Magnetic";
-            this.magneticToolStripMenuItem.Click += new System.EventHandler(this.magneticToolStripMenuItem_Click);
             // 
             // stopToolStripMenuItem
             // 
@@ -132,6 +95,7 @@
             this.dockPanel1.RightToLeftLayout = true;
             this.dockPanel1.Size = new System.Drawing.Size(1010, 725);
             this.dockPanel1.TabIndex = 3;
+            this.dockPanel1.ActiveContentChanged += new System.EventHandler(this.dockPanel1_ActiveContentChanged);
             // 
             // MainForm
             // 
@@ -157,14 +121,10 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem windowsToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem windowsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem stopToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem startToolStripMenuItem;
-        private WeifenLuo.WinFormsUI.Docking.DockPanel dockPanel1;
-        private System.Windows.Forms.ToolStripMenuItem accelerateToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem gravityToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem gyroscopeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem magneticToolStripMenuItem;
+        public WeifenLuo.WinFormsUI.Docking.DockPanel dockPanel1;
     }
 }
 

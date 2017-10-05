@@ -1,0 +1,47 @@
+﻿1:ICM20690 Accelerometer
+2:AK09916C Magnetometer
+14:AK09916C Magnetometer Uncalibrated
+4:ICM20690 Gyroscope
+16:ICM20690 Gyroscope Uncalibrated
+8:TMD2620 PROX
+6:BMP285 Pressure
+1:ICM20690 Accelerometer -Wakeup Secondary
+2:AK09916C Magnetometer -Wakeup Secondary
+14:AK09916C Magnetometer Uncalibrated -Wakeup Secondary
+4:ICM20690 Gyroscope -Wakeup Secondary
+16:ICM20690 Gyroscope Uncalibrated -Wakeup Secondary
+8:TMD2620 PROX -Non Wakeup Secondary
+6:BMP285 Pressure -Wakeup Secondary
+9:Gravity
+10:Linear Acceleration
+11:Rotation Vector
+18:Step Detector
+19:Step Counter
+17:Significant Motion Detector
+15:Game Rotation Vector
+20:GeoMagnetic Rotation Vector
+3:Orientation
+22:Tilt Detector
+29:Android Stationary Detector
+30:Android Motion Detector
+33171027:Oem5 Taptap Gesture
+9:Gravity -Wakeup Secondary
+10:Linear Acceleration -Wakeup Secondary
+11:Rotation Vector -Wakeup Secondary
+18:Step Detector -Wakeup Secondary
+19:Step Counter -Wakeup Secondary
+15:Game Rotation Vector -Wakeup Secondary
+20:GeoMagnetic Rotation Vector -Wakeup Secondary
+3:Orientation -Wakeup Secondary
+33171006:AMD
+33171007:RMD
+33171000:Basic Gestures
+33171002:Facing
+33171009:Pedometer
+33171011:Motion Accel
+33171012:Coarse Motion Classifier
+5:BH1745 BH1745 ALS DEVICE
+33171021:IOD
+33171022:DPC
+33171023:MultiShake
+33171024:Persistent Motion Detector

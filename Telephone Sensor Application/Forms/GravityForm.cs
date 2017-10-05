@@ -95,7 +95,7 @@ namespace Telephone_Sensor_Application.Forms
                     //Set Docking of the legend chart to the Default Chart Area
                     chartGravity.Legends[axis].DockedToChartArea = "ChartAreaGravity";
 
-                    series.Points.AddXY(sensorData.Timestamp / 1000, data);
+                    series.Points.AddXY(sensorData.Timestamp, data);
                 }
                 firstdata_b = false;//init is finished.
             }
@@ -121,7 +121,7 @@ namespace Telephone_Sensor_Application.Forms
                             break;
 
                     }
-                    chartGravity.Series[axis].Points.AddXY(sensorData.Timestamp / 1000, data);
+                    chartGravity.Series[axis].Points.AddXY(sensorData.Timestamp, data);
                 }
             }
         }
