@@ -21,7 +21,7 @@ namespace Telephone_Sensor_Application.Forms
         private Dictionary<string, SensorType> sensorsTypeDict = null;
         private MainForm mainForm = null;
         //本程序目前支持的传感器类型
-        private HashSet<SensorType> selectedSensorsTypeSet = new HashSet<SensorType>(); 
+        private HashSet<SensorType> selectedSensorsTypeSet = null; 
         private HashSet<SensorType> androidSensorsTypeSet = new HashSet<SensorType>();
         public SettingForm(MainForm mainForm)
         {
@@ -85,6 +85,7 @@ namespace Telephone_Sensor_Application.Forms
 
         private void buttonOK_Click(object sender, EventArgs e)
         {
+            selectedSensorsTypeSet = new HashSet<SensorType>();
             mainForm.windowsToolStripMenuItem.DropDownItems.Clear();
             for(int i=0; i<checkedListBoxSensorsType.Items.Count; i++)
             {
@@ -162,7 +163,7 @@ namespace Telephone_Sensor_Application.Forms
 
         private void accelerateToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            mainForm.accelerateForm.Show(mainForm.dockPanel1);
+            mainForm.accelerometerForm.Show(mainForm.dockPanel1);
         }
 
         private void gravityToolStripMenuItem_Click(object sender, EventArgs e)

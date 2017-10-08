@@ -67,6 +67,12 @@
     <Compile Include="Forms\AccelerateForm.Designer.cs">
       <DependentUpon>AccelerateForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Form3D.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form3D.Designer.cs">
+      <DependentUpon>Form3D.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\GravityForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -105,6 +111,9 @@
     <Compile Include="Utility\SaveFileHelper.cs" />
     <EmbeddedResource Include="Forms\AccelerateForm.resx">
       <DependentUpon>AccelerateForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form3D.resx">
+      <DependentUpon>Form3D.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\GravityForm.resx">
       <DependentUpon>GravityForm.cs</DependentUpon>

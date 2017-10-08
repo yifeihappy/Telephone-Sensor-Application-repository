@@ -22,10 +22,15 @@ namespace Telephone_Sensor_Application
     {
 
         //目前支持的传感器类型，增加的话需要在这里更改
-        public AccelerateForm accelerateForm = null;
-        public MagneticForm magneticForm = null;
-        public GyroscopeForm gyroscopeForm = null;
-        public GravityForm gravityForm = null;
+        //public AccelerateForm accelerometerForm = null;
+        //public MagneticForm magneticForm = null;
+        //public GyroscopeForm gyroscopeForm = null;
+        //public GravityForm gravityForm = null;
+        public Form3D accelerometerForm = null;
+        public Form3D magneticForm = null;
+        public Form3D gyroscopeForm = null;
+        public Form3D gravityForm = null;
+        
         public SettingForm settingForm = null;
 
         private bool firstdata_b = true;
@@ -39,10 +44,17 @@ namespace Telephone_Sensor_Application
         public MainForm()
         {
             //目前支持的传感器类型，增加的话需要在这里更改
-            accelerateForm = new AccelerateForm();
-            magneticForm = new MagneticForm();
-            gyroscopeForm = new GyroscopeForm();
-            gravityForm = new GravityForm();
+            //accelerometerForm = new AccelerateForm();
+            //magneticForm = new MagneticForm();
+            //gyroscopeForm = new GyroscopeForm();
+            //gravityForm = new GravityForm();
+
+            accelerometerForm = new Form3D("accelerometerForm", "accelerometer");
+            gyroscopeForm = new Form3D("gyroscopeForm", "gyroscope");
+            magneticForm = new Form3D("magneticForm", "magnetic");
+            gravityForm = new Form3D("gravityForm", "gravity");
+
+
             settingForm = new SettingForm(this);
 
             InitializeComponent();
@@ -123,16 +135,16 @@ namespace Telephone_Sensor_Application
                             switch ((SensorType)sditem.Type)
                             {
                                 case SensorType.TYPE_ACCELEROMETER:
-                                    if (accelerateForm.Visible)
+                                    if (accelerometerForm.Visible)
                                     {
 
-                                        accelerateForm.UpdateAccelerateGraph(sditem);
+                                        accelerometerForm.UpdateGraph(sditem);
                                     }
                                     break;
                                 case SensorType.TYPE_GRAVITY:
                                     if (gravityForm.Visible)
                                     {
-                                        gravityForm.UpdateGravityGraph(sditem);
+                                        gravityForm.UpdateGraph(sditem);
                                     }
                                     break;
                                 case SensorType.TYPE_MAGNETIC_FIELD:
@@ -201,14 +213,24 @@ namespace Telephone_Sensor_Application
         public void Clear()
         {
             sensorDataTable.Clear();
-            if(accelerateForm.Visible)
+            if(accelerometerForm.Visible)
             {
-                accelerateForm.Clear();
+                accelerometerForm.Clear();
             }
 
             if(gravityForm.Visible)
             {
                 gravityForm.Clear();
+            }
+
+            if(gyroscopeForm.Visible)
+            {
+                gyroscopeForm.Clear();
+            }
+
+            if(magneticForm.Visible)
+            {
+                magneticForm.Clear();
             }
         }
 
