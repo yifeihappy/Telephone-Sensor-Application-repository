@@ -61,35 +61,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Forms\AccelerateForm.cs">
+    <Compile Include="Forms\FormXD.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\AccelerateForm.Designer.cs">
-      <DependentUpon>AccelerateForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Form3D.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Form3D.Designer.cs">
-      <DependentUpon>Form3D.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\GravityForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\GravityForm.Designer.cs">
-      <DependentUpon>GravityForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\GyroscopeForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\GyroscopeForm.Designer.cs">
-      <DependentUpon>GyroscopeForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\MagneticForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\MagneticForm.Designer.cs">
-      <DependentUpon>MagneticForm.cs</DependentUpon>
+    <Compile Include="Forms\FormXD.Designer.cs">
+      <DependentUpon>FormXD.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
@@ -109,20 +85,8 @@
     <Compile Include="Object\SensorDataTable.cs" />
     <Compile Include="Object\SensorType.cs" />
     <Compile Include="Utility\SaveFileHelper.cs" />
-    <EmbeddedResource Include="Forms\AccelerateForm.resx">
-      <DependentUpon>AccelerateForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Form3D.resx">
-      <DependentUpon>Form3D.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\GravityForm.resx">
-      <DependentUpon>GravityForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\GyroscopeForm.resx">
-      <DependentUpon>GyroscopeForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\MagneticForm.resx">
-      <DependentUpon>MagneticForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FormXD.resx">
+      <DependentUpon>FormXD.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -149,8 +113,11 @@
     <None Include="Connected Services\SensorDataService\item2.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\SensorDataService\item3.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\SensorDataService\SensorDataService1.wsdl" />
-    <None Include="Connected Services\SensorDataService\Telephone_Sensor_Application.SensorDataService.SensorDataItem.datasource">
+    <None Include="Connected Services\SensorDataService\Telephone_Sensor_Application.SensorDataService.SensorDataItemXD.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\SocketService1\item.xsd">

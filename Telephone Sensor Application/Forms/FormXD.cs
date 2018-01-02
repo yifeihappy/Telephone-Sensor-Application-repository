@@ -5,15 +5,16 @@ using WeifenLuo.WinFormsUI.Docking;
 
 namespace Telephone_Sensor_Application.Forms
 {
-    public partial class Form3D : DockContent
+    public partial class FormXD : DockContent
     {
         public bool firstdata_b = true;
         private string sensorName = null;
-        public Form3D(string formName, string sensorName)
+        private string formName = null;
+        public FormXD(string formName, string sensorName)
         {
             InitializeComponent();
             this.sensorName = sensorName;
-            this.Text = formName;
+            this.formName = formName;
         }
 
         private void Form3D_Load(object sender, EventArgs e)
@@ -29,10 +30,11 @@ namespace Telephone_Sensor_Application.Forms
                 toolStripComboBoxLineWidth.Items.Add(i + 1);
             }
             toolStripComboBoxLineWidth.Text = Convert.ToString(3);
+            this.TabText = formName;
         }
 
 
-        public void UpdateGraph(SensorDataItem sensorData)
+        public void UpdateGraph(SensorDataItemXD sensorDataXD)
         {
             if (firstdata_b)
             {
@@ -41,7 +43,7 @@ namespace Telephone_Sensor_Application.Forms
                 title.Font = new System.Drawing.Font("Microsoft Sans Serif", 20, System.Drawing.FontStyle.Bold);
                 chart1.Titles.Add(title);
 
-                for (int i = 0; i < 3; i++)
+                for (int i = 0; i < sensorDataXD.Dimension; i++)
                 {
                     String axis = null;
                     double data = 0;
@@ -49,18 +51,54 @@ namespace Telephone_Sensor_Application.Forms
                     {
                         case 0:
                             axis = "X";
-                            data = sensorData.X;
                             break;
                         case 1:
                             axis = "Y";
-                            data = sensorData.Y;
                             break;
                         case 2:
                             axis = "Z";
-                            data = sensorData.Z;
                             break;
-
+                        case 3:
+                            axis = "A";
+                            break;
+                        case 4:
+                            axis = "B";
+                            break;
+                        case 5:
+                            axis = "C";
+                            break;
+                        case 6:
+                            axis = "D";
+                            break;
+                        case 7:
+                            axis = "E";
+                            break;
+                        case 8:
+                            axis = "F";
+                            break;
+                        case 9:
+                            axis = "G";
+                            break;
+                        case 10:
+                            axis = "H";
+                            break;
+                        case 11:
+                            axis = "I";
+                            break;
+                        case 12:
+                            axis = "J";
+                            break;
+                        case 13:
+                            axis = "K";
+                            break;
+                        case 14:
+                            axis = "L";
+                            break;
+                        case 15:
+                            axis = "M";
+                            break;
                     }
+                    data = sensorDataXD.SensorsArr[i];
                     //Create a new curve
                     Series series = new Series(axis);
                     //Set chart type
@@ -89,13 +127,13 @@ namespace Telephone_Sensor_Application.Forms
                     //Set Docking of the legend chart to the Default Chart Area
                     chart1.Legends[axis].DockedToChartArea = "ChartArea1";
 
-                    series.Points.AddXY(sensorData.Timestamp, data);
+                    series.Points.AddXY(sensorDataXD.Timestamp, data);
                 }
                 firstdata_b = false;//init is finished.
             }
             else
             {
-                for (int i = 0; i < 3; i++)
+                for (int i = 0; i < sensorDataXD.Dimension; i++)
                 {
                     String axis = null;
                     double data = 0;
@@ -103,19 +141,55 @@ namespace Telephone_Sensor_Application.Forms
                     {
                         case 0:
                             axis = "X";
-                            data = sensorData.X;
                             break;
                         case 1:
                             axis = "Y";
-                            data = sensorData.Y;
                             break;
                         case 2:
                             axis = "Z";
-                            data = sensorData.Z;
                             break;
-
+                        case 3:
+                            axis = "A";
+                            break;
+                        case 4:
+                            axis = "B";
+                            break;
+                        case 5:
+                            axis = "C";
+                            break;
+                        case 6:
+                            axis = "D";
+                            break;
+                        case 7:
+                            axis = "E";
+                            break;
+                        case 8:
+                            axis = "F";
+                            break;
+                        case 9:
+                            axis = "G";
+                            break;
+                        case 10:
+                            axis = "H";
+                            break;
+                        case 11:
+                            axis = "I";
+                            break;
+                        case 12:
+                            axis = "J";
+                            break;
+                        case 13:
+                            axis = "K";
+                            break;
+                        case 14:
+                            axis = "L";
+                            break;
+                        case 15:
+                            axis = "M";
+                            break;
                     }
-                    chart1.Series[axis].Points.AddXY(sensorData.Timestamp, data);
+                    data = sensorDataXD.SensorsArr[i];
+                    chart1.Series[axis].Points.AddXY(sensorDataXD.Timestamp, data);
                 }
             }
         }

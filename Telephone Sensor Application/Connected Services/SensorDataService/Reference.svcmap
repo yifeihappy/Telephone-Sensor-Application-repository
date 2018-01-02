@@ -22,11 +22,12 @@
     <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/ConsoleApp1/SensorDataService1/" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="SensorDataService1.wsdl" MetadataType="Wsdl" ID="e83cdfbd-5a2f-43f3-b4fb-1d291c1d8f91" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/ConsoleApp1/SensorDataService1/?wsdl" />
-    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="839f8164-fc05-41e2-9f4b-b22b426493e0" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/ConsoleApp1/SensorDataService1/?xsd=xsd0" />
-    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="c77d0395-dbb6-4e6e-8f52-cdde51441f8a" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/ConsoleApp1/SensorDataService1/?xsd=xsd2" />
-    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="54a83e02-3cf2-4af9-b762-cec0c90fc9f7" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/ConsoleApp1/SensorDataService1/?disco" />
     <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="be23c5e0-08b8-4f5a-a108-cec655a1d401" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/ConsoleApp1/SensorDataService1/?xsd=xsd1" />
+    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="54a83e02-3cf2-4af9-b762-cec0c90fc9f7" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/ConsoleApp1/SensorDataService1/?disco" />
+    <MetadataFile FileName="SensorDataService1.wsdl" MetadataType="Wsdl" ID="e83cdfbd-5a2f-43f3-b4fb-1d291c1d8f91" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/ConsoleApp1/SensorDataService1/?wsdl" />
+    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="c77d0395-dbb6-4e6e-8f52-cdde51441f8a" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/ConsoleApp1/SensorDataService1/?xsd=xsd2" />
+    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="839f8164-fc05-41e2-9f4b-b22b426493e0" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/ConsoleApp1/SensorDataService1/?xsd=xsd0" />
+    <MetadataFile FileName="item3.xsd" MetadataType="Schema" ID="030b8b21-e9f0-4f32-a85d-60796519efab" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/ConsoleApp1/SensorDataService1/?xsd=xsd3" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

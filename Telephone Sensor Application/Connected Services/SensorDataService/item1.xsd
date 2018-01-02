@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/TelephoneSensorService" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/TelephoneSensorService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:complexType name="ArrayOfSensorDataItem">
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/ConsoleApp1" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ConsoleApp1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8733/Design_Time_Addresses/ConsoleApp1/SensorDataService1/?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="ArrayOfSensorDataItemXD">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="SensorDataItem" nillable="true" type="tns:SensorDataItem" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SensorDataItemXD" nillable="true" type="tns:SensorDataItemXD" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ArrayOfSensorDataItem" nillable="true" type="tns:ArrayOfSensorDataItem" />
-  <xs:complexType name="SensorDataItem">
+  <xs:element name="ArrayOfSensorDataItemXD" nillable="true" type="tns:ArrayOfSensorDataItemXD" />
+  <xs:complexType name="SensorDataItemXD">
     <xs:sequence>
+      <xs:element minOccurs="0" name="Dimension" type="xs:int" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="SensorsArr" nillable="true" type="q1:ArrayOfdouble" />
       <xs:element minOccurs="0" name="Timestamp" type="xs:unsignedLong" />
       <xs:element minOccurs="0" name="Type" type="xs:int" />
-      <xs:element minOccurs="0" name="X" type="xs:double" />
-      <xs:element minOccurs="0" name="Y" type="xs:double" />
-      <xs:element minOccurs="0" name="Z" type="xs:double" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="SensorDataItem" nillable="true" type="tns:SensorDataItem" />
+  <xs:element name="SensorDataItemXD" nillable="true" type="tns:SensorDataItemXD" />
 </xs:schema>

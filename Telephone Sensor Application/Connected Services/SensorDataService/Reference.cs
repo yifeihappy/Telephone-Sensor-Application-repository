@@ -15,27 +15,24 @@ namespace Telephone_Sensor_Application.SensorDataService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="SensorDataItem", Namespace="http://schemas.datacontract.org/2004/07/TelephoneSensorService")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SensorDataItemXD", Namespace="http://schemas.datacontract.org/2004/07/ConsoleApp1")]
     [System.SerializableAttribute()]
-    public partial class SensorDataItem : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class SensorDataItemXD : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int DimensionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double[] SensorsArrField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private ulong TimestampField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int TypeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private double XField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private double YField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private double ZField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -44,6 +41,32 @@ namespace Telephone_Sensor_Application.SensorDataService {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Dimension {
+            get {
+                return this.DimensionField;
+            }
+            set {
+                if ((this.DimensionField.Equals(value) != true)) {
+                    this.DimensionField = value;
+                    this.RaisePropertyChanged("Dimension");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double[] SensorsArr {
+            get {
+                return this.SensorsArrField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SensorsArrField, value) != true)) {
+                    this.SensorsArrField = value;
+                    this.RaisePropertyChanged("SensorsArr");
+                }
             }
         }
         
@@ -73,45 +96,6 @@ namespace Telephone_Sensor_Application.SensorDataService {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public double X {
-            get {
-                return this.XField;
-            }
-            set {
-                if ((this.XField.Equals(value) != true)) {
-                    this.XField = value;
-                    this.RaisePropertyChanged("X");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public double Y {
-            get {
-                return this.YField;
-            }
-            set {
-                if ((this.YField.Equals(value) != true)) {
-                    this.YField = value;
-                    this.RaisePropertyChanged("Y");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public double Z {
-            get {
-                return this.ZField;
-            }
-            set {
-                if ((this.ZField.Equals(value) != true)) {
-                    this.ZField = value;
-                    this.RaisePropertyChanged("Z");
-                }
-            }
-        }
-        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName) {
@@ -133,10 +117,10 @@ namespace Telephone_Sensor_Application.SensorDataService {
         System.Threading.Tasks.Task DoWorkAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISensorDataService1/TryDeque", ReplyAction="http://tempuri.org/ISensorDataService1/TryDequeResponse")]
-        Telephone_Sensor_Application.SensorDataService.SensorDataItem[] TryDeque();
+        Telephone_Sensor_Application.SensorDataService.SensorDataItemXD[] TryDeque();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISensorDataService1/TryDeque", ReplyAction="http://tempuri.org/ISensorDataService1/TryDequeResponse")]
-        System.Threading.Tasks.Task<Telephone_Sensor_Application.SensorDataService.SensorDataItem[]> TryDequeAsync();
+        System.Threading.Tasks.Task<Telephone_Sensor_Application.SensorDataService.SensorDataItemXD[]> TryDequeAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISensorDataService1/ClearSensorDataQueue", ReplyAction="http://tempuri.org/ISensorDataService1/ClearSensorDataQueueResponse")]
         void ClearSensorDataQueue();
@@ -186,11 +170,11 @@ namespace Telephone_Sensor_Application.SensorDataService {
             return base.Channel.DoWorkAsync();
         }
         
-        public Telephone_Sensor_Application.SensorDataService.SensorDataItem[] TryDeque() {
+        public Telephone_Sensor_Application.SensorDataService.SensorDataItemXD[] TryDeque() {
             return base.Channel.TryDeque();
         }
         
-        public System.Threading.Tasks.Task<Telephone_Sensor_Application.SensorDataService.SensorDataItem[]> TryDequeAsync() {
+        public System.Threading.Tasks.Task<Telephone_Sensor_Application.SensorDataService.SensorDataItemXD[]> TryDequeAsync() {
             return base.Channel.TryDequeAsync();
         }
         
